@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialLinking | Social Media Share Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../style.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#" class="logo-link">Social<strong>Linking</strong></a>
+            </div>
+            <div class="controls" id="controls">
+                <button class="btn btn-signin notlogin" onclick="showsignin()">sign in</button>
+                <button class="btn btn-signup notlogin" onclick="showsignup()">sign up</button>
+                <a href="#username" class="link islogin" id="username"></a>
+                <button class="btn btn-logout islogin" onclick="logout()">logout</button>
+
+            </div>
+        </div>
+
+    </header>
+
+    <section class="section home" id="home">
+        <div class="container">
+            <div class="heading">
+                <img src="./images/user-1.jpg" class="userimage" id="userimage" width="50" alt="" srcset="">
+                <a href="#" class="useranme" id="userpage">
+                    SocialLinking
+                </a>
+                <button class="btn btn-add" onclick="shownewLink()" id="addlink">new link</button>
+            </div>
+            <div class="items" id="items">
+                <a href="#faceboo.com/" class="item">
+                    <span class="icon"><i class="fab fa-facebook-f"></i></span>
+                    <span class="name">@facebook-itcode</span>
+                </a>
+                <a href="#faceboo.com/" class="item">
+                    <span class="icon"><i class="fab fa-youtube"></i></span>
+                    <span class="name">@tube-itcode</span>
+                </a>
+                <a href="#faceboo.com/" class="item">
+                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                    <span class="name">@facebook-itcode</span>
+                </a>
+                <a href="#faceboo.com/" class="item">
+                    <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span class="name">@linkedin-profile</span>
+                </a>
+                <a href="#faceboo.com/" class="item">
+                    <span class="icon"><i class="fab fa-x"></i></span>
+                    <span class="name">@x-itcode</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="card register-card" id="signup">
+        <label class="icon icon-close" onclick="hidenCard()"><i class="fa fa-close"></i></label>
+
+        <div class="heading">
+            <h1>Sign In With SocialLinking</h1>
+        </div>
+        <div class="body">
+            <form action="" method="post">
+                <div class="line">
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="rg-email">
+                </div>
+                <div class="line">
+                    <label for="username">username</label>
+                    <input type="text" name="username" id="rg-username">
+                </div>
+                <div class="line">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="rg-password">
+                </div>
+                <div class="line">
+                    <label for="image">Image URL</label>
+                    <input type="text" name="image" id="rg-image">
+                </div>
+                <div class="line">
+                    <button class="btn btn submit" type="rest" onclick="signup()">submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>login with <strong> @SocialLinking</strong></p>
+        </div>
+    </div>
+
+    <div class="card login-card" id="signin">
+        <label class="icon icon-close" onclick="hidenCard()"><i class="fa fa-close"></i></label>
+
+        <div class="heading">
+            <h1>Sign In With SocialLinking</h1>
+        </div>
+        <div class="body">
+            <form action="" method="post">
+                <div class="line">
+                    <label for="username">username</label>
+                    <input type="text" name="username" id="inp-username">
+                </div>
+                <div class="line">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="inp-password">
+                </div>
+                <div class="line">
+                    <button class="btn btn submit" type="rest" onclick="signin()">submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>login with <strong> @SocialLinking</strong></p>
+        </div>
+    </div>
+    <div class="card login-card" id="newlink">
+        <label class="icon icon-close" onclick="hidenCard()"><i class="fa fa-close"></i></label>
+
+        <div class="heading">
+            <h1>New Link</h1>
+        </div>
+        <div class="body">
+            <form action="" method="post">
+
+                <div class="line">
+                    <label for="name">name</label>
+                    <input type="text" name="name" id="new-name">
+                </div>
+                <div class="line">
+                    <label for="url">url</label>
+                    <input type="text" name="url" id="new-url">
+                </div>
+                <div class="line">
+                    <button class="btn btn-submit" type="rest" onclick="newLink()">submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>login with <strong> @SocialLinking</strong></p>
+        </div>
+    </div>
+
+    <div class="card login-card" id="editlink">
+        <label class="icon icon-close" onclick="hidenCard()"><i class="fa fa-close"></i></label>
+
+        <div class="heading">
+            <h1>Edit Link</h1>
+        </div>
+        <div class="body">
+            <form action="" method="post">
+                <div class="line active">
+                    <label for="name">ID</label>
+                    <input type="text" name="name" id="edit-id" disabled>
+                </div>
+                <div class="line">
+                    <label for="name">name</label>
+                    <input type="text" name="name" id="edit-name">
+                </div>
+                <div class="line">
+                    <label for="url">url</label>
+                    <input type="text" name="url" id="edit-url">
+                </div>
+                <div class="line">
+                    <button class="btn btn submit" type="rest" onclick="editLink()">submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>login with <strong> @SocialLinking</strong></p>
+        </div>
+    </div>
+
+    <div class="card login-card" id="deletelink">
+        <label class="icon icon-close" onclick="hidenCard()"><i class="fa fa-close"></i></label>
+
+        <div class="heading">
+            <h1>Edit Link</h1>
+        </div>
+        <div class="body">
+            <form action="" method="post">
+                <div class="line active">
+                    <label for="delete-id">ID</label>
+                    <input type="text" name="name" id="delete-id" disabled>
+                </div>
+
+                <div class="line">
+                    <button class="btn btn submit" type="rest" onclick="deleteLink()">submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>login with <strong> @SocialLinking</strong></p>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    document.getElementById('username').innerText = localStorage.getItem('USERNAME')
+
+    checkisloggin()
+    function checkisloggin() {
+        if (localStorage.getItem('USERNAME')) {
+            document.getElementById('controls').classList.add('active')
+            document.getElementById('username').innerText = localStorage.getItem('USERNAME')
+            document.getElementById('username').href = '/user/' + localStorage.getItem('USERID')
+
+
+        } else {
+            document.getElementById('controls').classList.remove('active')
+        }
+    }
+
+
+    let href = window.location.href
+    let href_array = href.split('/')
+    console.log(href_array)
+    console.log('length' + href_array.length)
+    let user_id = href_array[href_array.length - 1]
+    console.log(href_array[href_array.length - 2])
+    if (href_array[href_array.length - 2] == 'user') {
+        if (localStorage.getItem('USERID') == user_id) {
+            console.log('my page user')
+            document.getElementById('addlink').classList.add('active')
+            console.log(user_id)
+            fetchUser(user_id, 'admin');
+        } else {
+            console.log(' page user')
+            console.log(user_id)
+            fetchUser(user_id, 'user');
+        }
+    }
+
+
+
+    function fetchUser(userid, role) {
+        fetch('http://localhost:5000/api/' + userid + '/links')
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                if (data.user.id > 0) {
+                    console.log(data)
+
+                    document.getElementById('userimage').src = data.user.userimage
+                    document.getElementById('userpage').innerText = '@' + data.user.username
+                    document.getElementById('userpage').href = '/' + data.user.username
+
+
+                    let lines = document.createElement('div')
+                    lines.classList.add('items')
+                    lines.id = 'items'
+                    data.links.forEach(link => {
+                        let line = document.createElement('div')
+                        line.classList.add('item')
+                        let icon = document.createElement('a')
+                        icon.href = link.url
+                        icon.classList.add('icon')
+                        let i = document.createElement('i')
+                        i.classList.add('fab')
+                        i.classList.add('fa-' + link.name)
+                        let name = document.createElement('a')
+                        name.classList.add('name')
+                        name.href = link.url
+
+                        if (role == 'admin') {
+                            let btnEdit = document.createElement('button')
+                            btnEdit.classList.add('btn')
+                            btnEdit.classList.add('btn-edit')
+                            btnEdit.id = link.id
+                            let i = document.createElement('i')
+                            i.classList.add('fa')
+                            i.classList.add('fa-edit')
+                            btnEdit.appendChild(i)
+
+                            line.appendChild(btnEdit)
+                            let btnDelete = document.createElement('button')
+                            btnDelete.classList.add('btn')
+                            btnDelete.classList.add('btn-delete')
+                            btnDelete.id = link.id
+                            let i2 = document.createElement('i')
+                            i2.classList.add('fa')
+                            i2.classList.add('fa-trash')
+                            btnDelete.appendChild(i2)
+                            line.appendChild(btnDelete);
+
+                        }
+
+
+                        name.innerText = link.name
+                        icon.appendChild(i)
+                        line.appendChild(icon)
+                        line.appendChild(name)
+                        lines.appendChild(line)
+                    });
+
+                    document.getElementById('items').innerHTML = lines.innerHTML
+
+
+                    var btnedits = document.querySelectorAll('.btn-edit')
+                    Array.from(btnedits).map(btn => {
+                        btn.addEventListener('click', (e) => {
+                            console.log(btn.id)
+                            hidenCard()
+                            document.getElementById("editlink").classList.add('active')
+                            document.getElementById("edit-id").value = btn.id
+
+                        })
+
+                    })
+                    var btnsdelete = document.querySelectorAll('.btn-delete')
+                    Array.from(btnsdelete).map(btn => {
+                        btn.addEventListener('click', (e) => {
+                            hidenCard()
+                            document.getElementById("deletelink").classList.add('active')
+                            document.getElementById("delete-id").value = btn.id
+
+                        })
+
+                    })
+                }
+
+            });
+    }
+    function shownewLink() {
+        hidenCard()
+        document.getElementById("newlink").classList.add('active')
+    }
+    function showsignin() {
+        hidenCard()
+        document.getElementById("signin").classList.add('active')
+    }
+    function showsignup() {
+        hidenCard()
+        document.getElementById("signup").classList.add('active')
+    }
+    function hidenCard() {
+        document.getElementById("signin").classList.remove('active')
+        document.getElementById("editlink").classList.remove('active')
+        document.getElementById("deletelink").classList.remove('active')
+        document.getElementById("newlink").classList.remove('active')
+        document.getElementById("signup").classList.remove('active')
+
+
+    }
+    function signin() {
+        event.preventDefault()
+        let username = document.getElementById("inp-username").value
+        let password = document.getElementById("inp-password").value
+        console.log({ username, password })
+        let settings = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ username, password })
+
+        }
+        fetch('http://localhost:5000/api/login', settings)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+                if (data.id > 0) {
+                    console.log(data.username)
+                    //document.getElementById('username').innerText = 'hi,' + data.username
+                    document.getElementById('controls').classList.add('active')
+                    localStorage.setItem('USERID', data.id)
+                    localStorage.setItem('USERNAME', data.username)
+                    localStorage.setItem('TOKEN', data.token)
+
+                    hidenCard()
+                }
+
+
+            });
+
+
+    }
+
+
+
+    function signup() {
+        event.preventDefault()
+        let username = document.getElementById("rg-username").value
+        let password = document.getElementById("rg-password").value
+        let email = document.getElementById("rg-email").value
+        let image = document.getElementById("rg-image").value
+
+        console.log({ username, password })
+        let settings = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ email, username, password, image })
+
+        }
+        fetch('http://localhost:5000/api/register', settings)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+                if (data.id > 0) {
+                    console.log(data.username)
+                    document.getElementById('controls').classList.add('active')
+                    localStorage.setItem('USERID', data.id)
+                    localStorage.setItem('USERNAME', data.username)
+                    localStorage.setItem('TOKEN', data.token)
+
+                    hidenCard()
+                }
+
+
+            });
+
+
+    }
+
+
+    function logout() {
+        localStorage.clear()
+        document.getElementById('controls').classList.remove('active')
+        fetchUser(user_id, 'user');
+
+    }
+    function newLink() {
+        event.preventDefault()
+        let name = document.getElementById("new-name").value
+        let url = document.getElementById("new-url").value
+        let user = localStorage.getItem('USERID')
+
+        let settings = {
+            headers: {
+                'authorization': '' + localStorage.getItem('TOKEN'),
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ user, name, url })
+
+        }
+        fetch('http://localhost:5000/api/link', settings)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+                fetchUser(localStorage.getItem('USERID'), 'admin');
+                hidenCard()
+
+            });
+
+
+    }
+
+    function editLink() {
+        event.preventDefault()
+        let ID = document.getElementById("edit-id").value
+        let name = document.getElementById("edit-name").value
+        let url = document.getElementById("edit-url").value
+        console.log({ name, url })
+        let settings = {
+            headers: {
+                'authorization': '' + localStorage.getItem('TOKEN'),
+                'Content-Type': 'application/json'
+            },
+            method: "PUT",
+            body: JSON.stringify({ name, url })
+
+        }
+        fetch('http://localhost:5000/api/link/' + ID, settings)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+                fetchUser(localStorage.getItem('USERID'), 'admin');
+                hidenCard()
+            });
+
+
+    }
+
+    function deleteLink() {
+        event.preventDefault()
+        let ID = document.getElementById("delete-id").value
+        let settings = {
+            headers: {
+                'authorization': '' + localStorage.getItem('TOKEN'),
+                'Content-Type': 'application/json'
+            },
+            method: "DELETE"
+        }
+        fetch('http://localhost:5000/api/link/' + ID, settings)
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+                fetchUser(localStorage.getItem('USERID'), 'admin');
+                hidenCard()
+
+            });
+
+
+    }
+
+</script>
+
+</html>
